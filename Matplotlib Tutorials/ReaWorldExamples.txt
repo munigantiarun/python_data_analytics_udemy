@@ -1,0 +1,66 @@
+
+
+In any DataFrame, there are two types of slicing. 
+Row slicing and Column Slicing 
+
+
+#Here Below, it displays all the column names --> Year, Australia, Canada, France, Germany etc.,
+for Country in gas:
+     print(Country)
+
+
+#Here in this below code, we are slicing of the rows, DEFAULT when we slice the DataFrame, if means Row Slicing.. 
+for Country in gas[1:]:
+     print(Country)
+
+
+
+# Approach #1: Below we are using .columns(slicing) so that we are just getting the names of columns of the DataFrame.
+for Country in gas.columns[1:]:
+    print(Country)
+
+
+# Approach #2 for removing the Year column name. 
+for country in gas:
+     if country != 'Year':
+         print(country)
+
+
+Approach #1 is more Pythonic and professional because, 
+whatever the name of the first column we want to remove, we can get that removal done. 
+In case "Year" changes to "Month", then code throws an error and we need to modify the code again, replacing with the word if country != 'month'.
+
+=================================================================================================
+Instead of writing each case as below, implementing for loop. 
+
+# plt.plot(gas.Year, gas.Australia, 'r.-', label="Australia")
+# plt.plot(gas.Year, gas.Canada, 'b.-', label="Canada")
+# plt.plot(gas.Year, gas.Japan, 'g.-', label = "Japan")
+
+
+--------------------------------------------------------------------------
+#NOTE : 
+If we would like to plot the countries mentioned in the below list, if logic is implemented. 
+
+countries_to_look_at = ['France', 'Italy', 'Australia', 'Canada']
+for Country in gas.columns[1:]:
+    if Country in countries_to_look_at:
+        plt.plot(gas.Year, gas[Country], marker='.', label = Country)
+---------------------------------------------------------------------------
+
+#NOTE : If we would like to exclude and plot the rest.. we just update the if condition as below: adding "not in" 
+
+countries_to_exclude = ['France', 'Italy', 'Australia', 'Canada']
+
+for Country in gas.columns[1:]:
+    if Country not in countries_to_exclude:
+        plt.plot(gas.Year, gas[Country], marker='.', label = Country)
+
+=================================================================================================
+
+
+
+
+
+
+

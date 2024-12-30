@@ -1,0 +1,66 @@
+MATRICES
+---------
+A Matrix is a table representation of data.
+A Matrix in python
+1-D is List
+2-d ---
+
+INDEXATION
+
+
+       [:,0]   [:,1]  [:,2]  [:,3]  [ :,4]
+          0      1     2      3      4
+
+[0,:] 0   27    27    27     27     27
+
+[1,:] 1   27    27    28     29     30
+
+[2,:] 2   28    28    28     0      29
+
+
+A[:,4]  = [4,27, 30, 29]  Column
+
+np.reshape(row,col,'C')
+np.reshape(row, col,'F')
+
+np.array() has below type formation of Matrix.
+   "row1"  "row2"  "row3"
+   "row4"  "row5"  "row6"
+   "row7"  "row8"  "row9"
+
+Array = Same Data Types = [1, 8, 4]
+List = Mixed Data Types = [1, 'Arun', '8k']
+
+List of List
+
+=======================================
+BAR GRAPH
+import matplotlib.pyplot as plt
+import datetime
+
+labels = ['SQL', 'Python', 'Data Visualisation']
+values = [8, 5.8, 6.2]
+
+# Create the figure with the specified size BEFORE plotting
+plt.figure(figsize=(5, 3))
+
+# Create the bar chart
+bars = plt.bar(labels, values)
+
+# Apply patterns to bars
+patterns = ['/', '*', 'o']
+for bar in bars:
+    bar.set_hatch(patterns.pop(0))
+
+# Generate timestamp for the filename
+timestamp = datetime.datetime.now().strftime("%m_%d_%Y_%H%M%S")
+plt.savefig(f'BarGraph_{timestamp}.png', dpi=200)  # Save with PNG extension
+
+# Display the plot
+plt.show()
+
+# Close the figure to free memory
+plt.close()
+
+
+
